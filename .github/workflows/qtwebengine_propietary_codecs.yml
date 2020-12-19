@@ -16,7 +16,9 @@ jobs:
     - name: Install Linux dependencies
       run: |
         sudo apt-get install git
+    - name: Build QtWebEngine
+      run: |
         git clone -b 5.15.1 https://github.com/qt/qtwebengine.git
         cd qtwebengine
-        git init submodule
+        git submodule update --init
         qmake . -- -webengine-proprietary-codecs
