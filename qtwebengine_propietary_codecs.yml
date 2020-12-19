@@ -1,0 +1,23 @@
+name: question_63477276
+
+on: [push]
+
+jobs:
+  ci:
+    runs-on: Linux
+
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: 5.15.1
+          dir: ${{ github.workspace }}/qt/
+    - name: Install Linux dependencies
+      run: |
+        sudo apt-get install git
+        git clone -b 5.15.1 https://github.com/qt/qtwebengine.git
+        cd qtwebengine
+        git init submodule
+        qmake . -- -webengine-proprietary-codecs
