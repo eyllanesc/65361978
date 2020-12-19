@@ -22,3 +22,5 @@ jobs:
         cd qtwebengine
         git submodule update --init
         qmake . -- -webengine-proprietary-codecs
+        make
+        make install
