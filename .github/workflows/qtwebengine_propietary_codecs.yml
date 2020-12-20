@@ -19,7 +19,7 @@ jobs:
         sudo apt-get install -y libxcursor-dev libxcomposite-dev libxdamage-dev libxrandr-dev libxtst-dev libxss-dev libdbus-1-dev libevent-dev libfontconfig1-dev libcap-dev libpulse-dev libudev-dev libpci-dev libnss3-dev libasound2-dev libegl1-mesa-dev gperf bison nodejs
     - name: Build QtWebEngine
       run: |
-        git clone -b 5.15.1 https://github.com/qt/qtwebengine.git
+        git clone -b 5.15.1 git://code.qt.io/qt/qtwebengine.git
         cd qtwebengine
         git submodule update --init
         qmake . -- -webengine-proprietary-codecs
